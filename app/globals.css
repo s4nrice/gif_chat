@@ -1,0 +1,18 @@
+/*@tailwind base;*/
+/*@tailwind components;*/
+/*@tailwind utilities;*/
+@import "tailwindcss";
+
+.gradient-text {
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.gif-picker {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
