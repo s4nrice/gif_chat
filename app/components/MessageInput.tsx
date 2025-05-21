@@ -35,10 +35,10 @@ export default function MessageInput({ onSend, onInputChange }: MessageInputProp
                     type="text"
                     value={inputValue}
                     onChange={handleChange}
-                    className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full h-12 p-2 border rounded-lg"
                     placeholder="Напишите сообщение или /gif для поиска гифок..."
                 />
-                {inputValue.startsWith("/gif") && (
+                {inputValue.startsWith("/gif ") && (
                     <span className="absolute left-2 top-1/2 transform -translate-y-1/2 gradient-text">
                         /gif
                     </span>
@@ -46,4 +46,24 @@ export default function MessageInput({ onSend, onInputChange }: MessageInputProp
             </div>
         </form>
     );
+
+    // return (
+    //     <form onSubmit={handleSubmit} className="relative">
+    //         <div className="relative">
+    //             <input
+    //                 ref={inputRef}
+    //                 type="text"
+    //                 value={inputValue}
+    //                 onChange={handleChange}
+    //                 className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    //                 placeholder="Напишите сообщение или /gif для поиска гифок..."
+    //             />
+    //             {inputValue.startsWith("/gif") && (
+    //                 <span className="absolute left-2 top-1/2 transform -translate-y-1/2 gradient-text">
+    //                     /gif
+    //                 </span>
+    //             )}
+    //         </div>
+    //     </form>
+    // );
 }

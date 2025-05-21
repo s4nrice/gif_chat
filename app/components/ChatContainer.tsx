@@ -22,15 +22,26 @@ export default function ChatContainer() {
     };
 
     return (
-        <div className="h-[80%] w-[30%] flex flex-col rounded-2xl shadow-lg p-6 gap-6 bg-white">
-            <div className="h-full w-full overflow-y-auto">
-            {/*<div className="relative flex-1 overflow-auto">*/}
-                <MessageList messages={messages} />
-                {showGifPicker && <GifPicker query={gifQuery} onSelect={(gifUrl) => addMessage({ type: "gif", content: gifUrl })} />}
-            </div>
-            <div className="shrink-0">
+        <div className="flex flex-col h-[90%] w-[30%] rounded-2xl shadow-lg bg-white">
+            <MessageList messages={messages} />
+            <div className="relative p-6">
                 <MessageInput onSend={addMessage} onInputChange={handleInputChange} />
+                {showGifPicker && <GifPicker query={gifQuery} onSelect={(gifUrl) => addMessage({ type: "gif", content: gifUrl })} />}
             </div>
         </div>
     );
+
+    // return (
+    //     <div className="h-[80%] w-[30%] flex flex-col rounded-2xl shadow-lg p-6 gap-6 bg-white">
+    //         <div className="h-full w-full overflow-y-auto">
+    //         {/*<div className="relative flex-1 overflow-auto">*/}
+    //             <MessageList messages={messages} />
+    //             {showGifPicker && <GifPicker query={gifQuery} onSelect={(gifUrl) => addMessage({ type: "gif", content: gifUrl })} />}
+    //         </div>
+    //         <div className="shrink-0">
+    //             <MessageInput onSend={addMessage} onInputChange={handleInputChange} />
+    //         </div>
+    //     </div>
+    // );
+
 }

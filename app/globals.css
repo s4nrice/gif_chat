@@ -12,7 +12,32 @@
 }
 
 .gif-picker {
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 100%;
+  width: 404px;
+  height: 248px;
+  border-radius: 1px;
+  background-color: #ffffff;
+  border: 1px solid #d3d9de;
+}
+
+.message-input-box{
+  width: 437px;
+  height: 62px;
+  border-radius: 4px;
+  background-color: #fafbfc;
+  border: 1px solid #dce1e5;
+}
+
+.message-input{
+  width: 405px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  border: 1px solid #d3d9de;
+}
+
+.gif-chat{
+  width: 352px;
+  height: 220px;
+  border-radius: 6px;
+  border: 0.5px solid #000000;
 }
