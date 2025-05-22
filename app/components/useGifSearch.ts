@@ -16,11 +16,11 @@ export function useGifSearch(query: string) {
 
         setError(null);
 
-        fetchGifs(query, 5)
+        fetchGifs(query, 25)
             .then((data) => {
                 setGifs(data.map((item: any) => ({
                     id: item.id,
-                    url: item.images.fixed_height.url,
+                    url: item.images.original.url,
                     title: item.title,
                 })));
             })

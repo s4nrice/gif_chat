@@ -1,6 +1,3 @@
-/*@tailwind base;*/
-/*@tailwind components;*/
-/*@tailwind utilities;*/
 @import "tailwindcss";
 
 .gradient-text {
@@ -11,33 +8,99 @@
   font-weight: bold;
 }
 
-.gif-picker {
-  width: 404px;
-  height: 248px;
-  border-radius: 1px;
-  background-color: #ffffff;
-  border: 1px solid #d3d9de;
+* {
+    box-sizing: border-box;
 }
 
-.message-input-box{
-  width: 437px;
-  height: 62px;
-  border-radius: 4px;
-  background-color: #fafbfc;
-  border: 1px solid #dce1e5;
+body {
+    margin: 0;
+    padding: 0;
+    background: #111;
+}
+
+.gif_container {
+    position: absolute;
+    bottom: 100%;
+    left: calc(1/2 * 100%);
+    width: 404px;
+    height: 248px;
+    max-width: 404px;
+}
+
+.gif-grid {
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+
+.gif-column {
+    flex: 1 1 calc(33% - 10px * 2 / 3);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.gif-column img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    border: 0.5px solid #000000;
+}
+
+.gif-column img:hover {
+    border-radius: 2px;
+    border: 0.5px solid #000000;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.25),
+                0 13px 4px 0 rgba(0, 0, 0, 0.12),
+                0 6px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.gif-chat {
+    max-height: 220px;
+    border-radius: 6px;
+    border: 0.5px solid #000000;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 437px;
+    /*height: 340px;*/
+    height: 900px;
+    background-color: #ffffff;
+}
+
+.date-text {
+    color: #a1a9b3;
+    font-size: 14px;
+    margin-right: 12px;
+}
+
+.message-input-block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 437px;
+    height: 62px;
+    border-radius: 4px;
+    background-color: #fafbfc;
+    border: 1px solid #dce1e5;
 }
 
 .message-input{
-  width: 405px;
-  height: 36px;
-  border-radius: 6px;
-  background-color: #ffffff;
-  border: 1px solid #d3d9de;
-}
-
-.gif-chat{
-  width: 352px;
-  height: 220px;
-  border-radius: 6px;
-  border: 0.5px solid #000000;
+    width: 405px;
+    height: 36px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    border: 1px solid #d3d9de;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    padding: 16px;
 }

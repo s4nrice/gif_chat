@@ -35,8 +35,8 @@ export default function MessageInput({ onSend, onInputChange }: MessageInputProp
                     type="text"
                     value={inputValue}
                     onChange={handleChange}
-                    className="w-full h-12 p-2 border rounded-lg"
-                    placeholder="Напишите сообщение или /gif для поиска гифок..."
+                    className="message-input"
+                    placeholder="Напишите сообщение..."
                 />
                 {inputValue.startsWith("/gif ") && (
                     <span className="absolute left-2 top-1/2 transform -translate-y-1/2 gradient-text">

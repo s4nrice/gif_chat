@@ -3,45 +3,38 @@
 import { useState } from "react";
 import MessageInput from "./MessageInput";
 import MessageList from "./MessageList";
-import GifPicker from "./GifPicker";
 import { useMessages } from "./useMessages";
+import GifGrid from "./GifGrid";
 
 export default function ChatContainer() {
     const { messages, addMessage } = useMessages();
-    const [showGifPicker, setShowGifPicker] = useState(false);
+    const [showGifContainer, setShowGifContainer] = useState(false);
     const [gifQuery, setGifQuery] = useState("");
 
     const handleInputChange = (value: string) => {
         if (value.startsWith("/gif ")) {
-            setShowGifPicker(true);
+            setShowGifContainer(true);
             setGifQuery(value.slice(5).trim());
         } else {
-            setShowGifPicker(false);
+            setShowGifContainer(false);
             setGifQuery("");
         }
     };
 
     return (
-        <div className="flex flex-col h-[90%] w-[30%] rounded-2xl shadow-lg bg-white">
+        <div className="chat-container shadow-xl">
             <MessageList messages={messages} />
-            <div className="relative p-6">
+            <div className="relative p-2 message-input-block">
                 <MessageInput onSend={addMessage} onInputChange={handleInputChange} />
-                {showGifPicker && <GifPicker query={gifQuery} onSelect={(gifUrl) => addMessage({ type: "gif", content: gifUrl })} />}
+                {showGifContainer &&
+                    <div className="gif_container -translate-x-1/2 border">
+                        <GifGrid query={gifQuery}
+                                      onSelect={(gifUrl) =>
+                                          addMessage({ type: "gif", content: gifUrl })}
+                        />
+                    </div>
+                }
             </div>
         </div>
     );
-
-    // return (
-    //     <div className="h-[80%] w-[30%] flex flex-col rounded-2xl shadow-lg p-6 gap-6 bg-white">
-    //         <div className="h-full w-full overflow-y-auto">
-    //         {/*<div className="relative flex-1 overflow-auto">*/}
-    //             <MessageList messages={messages} />
-    //             {showGifPicker && <GifPicker query={gifQuery} onSelect={(gifUrl) => addMessage({ type: "gif", content: gifUrl })} />}
-    //         </div>
-    //         <div className="shrink-0">
-    //             <MessageInput onSend={addMessage} onInputChange={handleInputChange} />
-    //         </div>
-    //     </div>
-    // );
-
 }
