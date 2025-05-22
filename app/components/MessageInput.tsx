@@ -39,7 +39,7 @@ export default function MessageInput({ onSend, onInputChange }: MessageInputProp
                     placeholder="Напишите сообщение..."
                 />
                 {inputValue.startsWith("/gif ") && (
-                    <span className="absolute left-2 top-1/2 transform -translate-y-1/2 gradient-text">
+                    <span className="absolute top-1/2 transform -translate-y-1/2 gradient-text">
                         /gif
                     </span>
                 )}

@@ -11,7 +11,7 @@ export default function MessageItem({ message }: MessageItemProps) {
         <div className="flex items-end p-2 gap-2 text-gray-700 rounded-lg">
             <div className="rounded-md">
                 {message.type === "text" ? (
-                    <p className="p-2 break-all">{message.content}</p>
+                    <p className="p-2 bg-gray-200 rounded-md break-all">{message.content}</p>
                 ) : (
                     <img src={message.content} alt="GIF" className="gif-chat" />
                 )}
