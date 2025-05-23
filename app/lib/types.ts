@@ -1,6 +1,7 @@
 export type Message = {
     type: "text" | "gif";
     content: string;
+    time: string;
 };
 
 export type Gif = {

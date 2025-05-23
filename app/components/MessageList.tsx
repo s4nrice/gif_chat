@@ -17,20 +17,11 @@ export default function MessageList({ messages }: MessageListProps) {
     }, [messages]);
 
     return (
-        <div className="flex-1 overflow-y-auto p-4 flex flex-col justify-end">
+        <div className="message-list">
             {messages.map((message, index) => (
                 <MessageItem key={index} message={message} />
             ))}
             <div ref={messagesEndRef} />
         </div>
     );
-
-    // return (
-    //     <div className="min-h-full flex flex-col justify-end overflow-y-auto z-10">
-    //         {messages.map((message, index) => (
-    //             <MessageItem key={index} message={message} />
-    //         ))}
-    //         <div ref={messagesEndRef} />
-    //     </div>
-    // );
 }

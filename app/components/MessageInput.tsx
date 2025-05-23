@@ -1,21 +1,21 @@
-"use client";
-
-import { useState, useRef } from "react";
 import { Message } from "@/lib/types";
 
 interface MessageInputProps {
+    inputValue: string;
+    setInputValue: (inputValue: string) => void;
     onSend: (message: Message) => void;
     onInputChange: (value: string) => void;
 }
 
-export default function MessageInput({ onSend, onInputChange }: MessageInputProps) {
-    const [inputValue, setInputValue] = useState("");
-    const inputRef = useRef<HTMLInputElement>(null);
+export default function MessageInput({ inputValue, setInputValue, onSend, onInputChange }: MessageInputProps) {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (inputValue.trim() && !inputValue.startsWith("/gif")) {
-            onSend({ type: "text", content: inputValue });
+            onSend({
+                type: "text",
+                content: inputValue,
+                time: new Date().toLocaleString([], { hour: "2-digit", minute: "2-digit" })});
             setInputValue("");
             onInputChange("");
         }
@@ -31,11 +31,10 @@ export default function MessageInput({ onSend, onInputChange }: MessageInputProp
         <form onSubmit={handleSubmit} className="relative">
             <div className="relative">
                 <input
-                    ref={inputRef}
                     type="text"
                     value={inputValue}
                     onChange={handleChange}
-                    className="message-input"
+                    className="input"
                     placeholder="Напишите сообщение..."
                 />
                 {inputValue.startsWith("/gif ") && (
@@ -46,24 +45,4 @@ export default function MessageInput({ onSend, onInputChange }: MessageInputProp
             </div>
         </form>
     );
-
-    // return (
-    //     <form onSubmit={handleSubmit} className="relative">
-    //         <div className="relative">
-    //             <input
-    //                 ref={inputRef}
-    //                 type="text"
-    //                 value={inputValue}
-    //                 onChange={handleChange}
-    //                 className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-    //                 placeholder="Напишите сообщение или /gif для поиска гифок..."
-    //             />
-    //             {inputValue.startsWith("/gif") && (
-    //                 <span className="absolute left-2 top-1/2 transform -translate-y-1/2 gradient-text">
-    //                     /gif
-    //                 </span>
-    //             )}
-    //         </div>
-    //     </form>
-    // );
 }

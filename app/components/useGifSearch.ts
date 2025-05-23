@@ -4,9 +4,8 @@ import { useState, useEffect } from "react";
 import { fetchGifs } from "@/lib/api";
 import { Gif } from "@/lib/types";
 
-export function useGifSearch(query: string) {
+export function useGifSearch(query: string, limit: number = 20) {
     const [gifs, setGifs] = useState<Gif[]>([]);
-    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         if (!query) {
@@ -14,9 +13,7 @@ export function useGifSearch(query: string) {
             return;
         }
 
-        setError(null);
-
-        fetchGifs(query, 25)
+        fetchGifs(query, limit)
             .then((data) => {
                 setGifs(data.map((item: any) => ({
                     id: item.id,
@@ -24,10 +21,7 @@ export function useGifSearch(query: string) {
                     title: item.title,
                 })));
             })
-            .catch(() => {
-                setError("Ошибка при загрузке гифок");
-            })
     }, [query]);
 
-    return { gifs, error };
+    return gifs;
 }
