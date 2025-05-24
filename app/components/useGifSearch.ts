@@ -18,6 +18,7 @@ export function useGifSearch(query: string, limit: number = 20) {
                 setGifs(data.map((item: any) => ({
                     id: item.id,
                     url: item.images.original.url,
+                    url_preview: item.images.fixed_width_small.url,
                     title: item.title,
                 })));
             })

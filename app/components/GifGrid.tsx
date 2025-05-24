@@ -1,4 +1,5 @@
 import { Gif } from "@/lib/types"
+import Image from 'next/image'
 
 
 interface GifGridProps {
@@ -19,7 +20,7 @@ function GifGrid({ gifs, onSelect }: GifGridProps) {
                     {gif_elements.map((gif) => (
                         <img
                             key={gif.id}
-                            src={gif.url}
+                            src={gif.url_preview}
                             alt={gif.title}
                             onClick={() => onSelect(gif.url)}
                         />

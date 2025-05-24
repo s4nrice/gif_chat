@@ -7,5 +7,6 @@ export type Message = {
 export type Gif = {
     id: string;
     url: string;
+    url_preview: string;
     title: string;
 };
